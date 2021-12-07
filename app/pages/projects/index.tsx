@@ -1,9 +1,9 @@
-// import { Suspense } from "react"
-// import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
-// import Layout from "app/core/layouts/Layout"
-// import getProjects from "app/projects/queries/getProjects"
+import { Suspense } from "react"
+import { Head, Link, usePaginatedQuery, useRouter, BlitzPage, Routes } from "blitz"
+import Layout from "app/core/layouts/Layout"
+import getProjects from "app/projects/queries/getProjects"
 
-// const ITEMS_PER_PAGE = 100
+const ITEMS_PER_PAGE = 100
 
 // export const ProjectsList = () => {
 //   const router = useRouter()
@@ -12,7 +12,6 @@
 //     orderBy: { id: "asc" },
 //     skip: ITEMS_PER_PAGE * page,
 //     take: ITEMS_PER_PAGE,
-//     pick
 //   })
 
 //   const goToPreviousPage = () => router.push({ query: { page: page - 1 } })
@@ -40,29 +39,27 @@
 //   )
 // }
 
-// const ProjectsPage: BlitzPage = () => {
-//   return (
-//     <>
-//       <Head>
-//         <title>Projects</title>
-//       </Head>
+const ProjectsPage: BlitzPage = () => {
+  return (
+    <>
+      <Head>
+        <title>Projects</title>
+      </Head>
 
-//       <div>
-//         <p>
-//           <Link href={Routes.NewProjectPage()}>
-//             <a>Create Project</a>
-//           </Link>
-//         </p>
+      <div>
+        <p>
+          <Link href={Routes.NewProjectPage()}>
+            <a>Create Project</a>
+          </Link>
+        </p>
 
-//         <Suspense fallback={<div>Loading...</div>}>
-//           <ProjectsList />
-//         </Suspense>
-//       </div>
-//     </>
-//   )
-// }
+        <Suspense fallback={<div>Loading...</div>}>{/* <ProjectsList /> */}</Suspense>
+      </div>
+    </>
+  )
+}
 
-// ProjectsPage.authenticate = true
-// ProjectsPage.getLayout = (page) => <Layout>{page}</Layout>
+ProjectsPage.authenticate = true
+ProjectsPage.getLayout = (page) => <Layout>{page}</Layout>
 
-// export default ProjectsPage
+export default ProjectsPage
